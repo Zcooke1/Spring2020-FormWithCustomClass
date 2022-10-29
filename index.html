@@ -7,6 +7,38 @@
     <title>Add Product Form</title>
 </head>
 <body>
-    
+
+    <h1>Add Restaurant</h1>
+
+    <div id="validation-summary">
+        <p>Errors go here...</p>
+    </div>
+
+    <form>
+        <label for="name">Name: </label>
+        <input id="name" type="text">
+        <br>
+        
+        <label for="category">Category: </label>
+        <input for="category" type="text">
+        <br>
+
+        <label for="rating">Rating:</label>
+        <select id="rating">
+            <option>5 Star</option>
+            <option>4 Star</option>
+            <option>3 Star</option>
+            <option>2 Star</option>
+            <option>1 Star</option>
+        </select>
+        <br>
+
+        <label for="delivery">Delivery?</label>
+        <input type="checkbox" id="delivery">
+        <br>
+
+        <input type="button" value="Add New Restaurant">
+
+    </form>
 </body>
 </html>
