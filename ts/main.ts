@@ -35,6 +35,22 @@ function isAllDataValid(){
 
 function displayRestaurant(myRestaurant:Restaurant):void{
     //Display Restaurant below the form.
+    let displayDiv = document.getElementById("display");
+
+    // Create h2 with restaurant title
+    let restHeading = document.createElement("h2");
+    restHeading.innerText = myRestaurant.name;
+
+    // Create paragraph with game details
+    let restInfo = document.createElement("p");
+    restInfo.innerText = myRestaurant.name = " is in the " + myRestaurant.category + " category, it has a " + 
+                                myRestaurant.rating + " rating and delivery is " + myRestaurant.hasDelivery + ".";
+
+    
+
+    // Add <h2> in the <div id="display">
+    displayDiv.appendChild(restHeading);
+    displayDiv.appendChild(restInfo);
 }
 
 /**
