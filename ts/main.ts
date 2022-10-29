@@ -29,8 +29,43 @@ function addRestaurant(){
 }
 
 //ADD VALIDATION CODE#####################################
-function isAllDataValid(){
-    return true;
+function isAllDataValid(myRestaurant:Restaurant):boolean{
+    
+    let restaurant = new Restaurant;
+    let validSum = document.getElementById("validation-summary");
+    let errorTxt = document.createElement("p");
+    let validName = <HTMLInputElement>document.getElementById("name");
+    let validCategory = <HTMLInputElement>document.getElementById("category");
+    let validRating = <HTMLInputElement>document.getElementById("rating");
+    let validDelivery = <HTMLInputElement>document.getElementById("delivery");
+
+    
+
+    if (validName.value == ""){
+       errorTxt.innerText = "Restaurant name has to be filled.";
+       validSum.appendChild(errorTxt);
+       return false;
+    }
+    else if (validCategory.value == ""){
+        errorTxt.innerText = "Category must be filled.";
+        validSum.appendChild(errorTxt);
+        return false;
+    }
+    else if (validRating.value == "Please select a rating."){
+        errorTxt.innerText = "Rating must be a valid option.";
+        validSum.appendChild(errorTxt);
+        return false;
+    }
+
+    else if (validDelivery.value == "Please select an option."){
+        errorTxt.innerText = "Choose whether the restaurant has delivery."
+        validSum.appendChild(errorTxt);
+        return false;
+    }
+    else{
+        return true;
+    }
+
 }
 
 function displayRestaurant(myRestaurant:Restaurant):void{
@@ -77,10 +112,10 @@ function getRestaurant():Restaurant{
         
         //restaurant.hasDelivery = hasDelivery.checked;
         
-        if(hasDelivery.checked){
+        if(hasDelivery.value == "Yes"){
             restaurant.hasDelivery = true;
         }
-        else{
+        else if(hasDelivery.value == "No" || hasDelivery.value == "Please select an option."){
             restaurant.hasDelivery = false;
         }
 

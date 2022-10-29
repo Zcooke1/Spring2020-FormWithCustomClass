@@ -13,8 +13,37 @@ function addRestaurant() {
         displayRestaurant(restaurant);
     }
 }
-function isAllDataValid() {
-    return true;
+function isAllDataValid(myRestaurant) {
+    var restaurant = new Restaurant;
+    var validSum = document.getElementById("validation-summary");
+    var errorTxt = document.createElement("p");
+    var validName = document.getElementById("name");
+    var validCategory = document.getElementById("category");
+    var validRating = document.getElementById("rating");
+    var validDelivery = document.getElementById("delivery");
+    if (validName.value == "") {
+        errorTxt.innerText = "Restaurant name has to be filled.";
+        validSum.appendChild(errorTxt);
+        return false;
+    }
+    else if (validCategory.value == "") {
+        errorTxt.innerText = "Category must be filled.";
+        validSum.appendChild(errorTxt);
+        return false;
+    }
+    else if (validRating.value == "Please select a rating.") {
+        errorTxt.innerText = "Rating must be a valid option.";
+        validSum.appendChild(errorTxt);
+        return false;
+    }
+    else if (validDelivery.value == "Please select an option.") {
+        errorTxt.innerText = "Choose whether the restaurant has delivery.";
+        validSum.appendChild(errorTxt);
+        return false;
+    }
+    else {
+        return true;
+    }
 }
 function displayRestaurant(myRestaurant) {
     var displayDiv = document.getElementById("display");
@@ -33,10 +62,10 @@ function getRestaurant() {
     var ratingInput = document.getElementById("rating");
     restaurant.rating = ratingInput.value;
     var hasDelivery = document.getElementById("delivery");
-    if (hasDelivery.checked) {
+    if (hasDelivery.value == "Yes") {
         restaurant.hasDelivery = true;
     }
-    else {
+    else if (hasDelivery.value == "No" || hasDelivery.value == "Please select an option.") {
         restaurant.hasDelivery = false;
     }
     var categoryInput = document.getElementById("category");

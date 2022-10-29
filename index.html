@@ -16,7 +16,7 @@
     <h1>Add Restaurant</h1>
 
     <div id="validation-summary">
-        <p>Errors go here...</p>
+        
     </div>
 
     <form>
@@ -30,6 +30,7 @@
 
         <label for="rating">Rating:</label>
         <select id="rating">
+            <option>Please select a rating.</option>
             <option>5 Star</option>
             <option>4 Star</option>
             <option>3 Star</option>
@@ -39,7 +40,10 @@
         <br>
 
         <label for="delivery">Delivery?</label>
-        <input type="checkbox" id="delivery">
+        <select id="delivery">
+            <option>Please select an option.</option>
+            <option>Yes</option>
+            <option>No</option>
         <br>
 
         <input type="button" value="Add New Restaurant">
